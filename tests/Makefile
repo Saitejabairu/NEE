@@ -1,8 +1,31 @@
-# Makefile
+# Define the Icarus Verilog executable
+IVL = iverilog
 
-TOPLEVEL = your_top_level_module
-MODULE = your_test_module
-VERILOG_SOURCES = $(PWD)/../hdl/dut.v $(PWD)/../hdl/dut.v
-COCOTB_REDUCED_LOG_FMT = 1
+# Define the test file
+TEST_FILE = test.py
 
-include $(shell cocotb-config --makefiles)/Makefile.sim
+# Define the DUT file
+DUT_FILE = dut.v
+
+# Target to compile the Verilog design
+compile:
+    @echo "Compiling Verilog design..."
+    @$(IVL) -o dut.vvp $(DUT_FILE)
+
+# Target to run the simulation
+run-sim:
+    @echo "Running simulation..."
+    @vvp dut.vvp
+
+# Target to run the test
+run-test:
+    @echo "Running test..."
+    @python $(TEST_FILE)
+
+# Target to clean up
+clean:
+    @echo "Cleaning up..."
+    @-rm -rf dut.vvp
+
+# Default target
+all: compile run-sim run-test
