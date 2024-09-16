@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1673500437" />
+    <testcase name="or_test" classname="or_test" file="/home/rishikesh/Projects/dyumnin/tutorial/tests/or_test.py" lineno="5" time="0.0011119842529296875" sim_time_ns="4.001" ratio_time="3598.0725351629508" />
+  </testsuite>
+</testsuites>
