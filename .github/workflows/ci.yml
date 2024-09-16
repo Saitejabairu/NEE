@@ -40,8 +40,8 @@ jobs:
           name: waveform
           path: tests/*.vcd
 
-      - name: Publish Test Report
+      - name: Publish JUnit Test Report
         uses: mikepenz/action-junit-report@v3
-        if: always() # always run even if the previous step fails
+        if: always() # Always run this step even if previous steps fail
         with:
           report_paths: '**/tests/results.xml'
