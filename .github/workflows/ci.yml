@@ -19,20 +19,20 @@ jobs:
       - name: Check Icarus Verilog version
         run: iverilog -V
 
-      - name: Install or upgrade Cocotb
+      - name: Install or upgrade Cocotb and Pytest
         run: |
           python -m pip install --upgrade pip
-          pip install cocotb cocotb-bus
+          pip install cocotb cocotb-bus pytest
 
       - name: Clean build artifacts
         run: |
           cd tests
           make clean
 
-      - name: Run simulations
+      - name: Run simulations with Pytest
         run: |
           cd tests
-          make
+          pytest
 
       - name: Upload waveform artifacts
         uses: actions/upload-artifact@v3
